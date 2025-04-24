@@ -1,0 +1,26 @@
+/* Estilo para el círculo social */
+.social-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; 
+    height: 60px;
+    border-radius: 50%; 
+    background-color: #fff; 
+    margin: 10px; 
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Estilo para el icono dentro del círculo */
+  .social-icon {
+    width: 35px; 
+    height: 35px;
+  }
+  
+  /* Efecto de hover */
+  .social-circle:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
