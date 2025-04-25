@@ -85,6 +85,7 @@ footer {
   
   .clock {
     font-size: 0.8rem; /* Tamaño de fuente más pequeño para pantallas pequeñas */
+    margin-top: 10px; /* Espacio superior */
   }
 
   .copyright {

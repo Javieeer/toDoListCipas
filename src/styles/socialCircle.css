@@ -64,8 +64,8 @@
 
 @media (max-width: 500px) {
   .social-circle {
-    width: 40px; /* Tamaño más pequeño en pantallas pequeñas */
-    height: 40px;
+    width: 50px; /* Tamaño más pequeño en pantallas pequeñas */
+    height: 50px;
   }
 
   .social-icon {
