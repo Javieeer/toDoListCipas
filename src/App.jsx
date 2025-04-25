@@ -9,9 +9,11 @@ function App() {
     
     /* Definimos los responsables de las tareas */
     const responsables = ["Javier Zapata", "Jhonatan Rojas", "Michael Martinez"];
+    const materias = ["Cálculo", "Elementos", "Ingles", "Ética", "Teoría", "Estadística"];
 
     /* Definimos los estados para el modal y la nueva tarea */
     const [modalVisible, setModalVisible] = useState(false);
+    const [nuevaTareaMateria, setNuevaTareaMateria] = useState('');
     const [nuevaTareaTexto, setNuevaTareaTexto] = useState('');
     const [nuevoResponsable, setNuevoResponsable] = useState('');
     const [nuevoLink, setNuevoLink] = useState('');
@@ -79,8 +81,9 @@ function App() {
 
     /* Función para agregar una nueva tarea */
     const agregarTarea = async () => {
-        if (nuevaTareaTexto.trim() && nuevoResponsable.trim() && nuevaFechaEntrega.trim()) {
+        if ( nuevaTareaMateria.trim() && nuevaTareaTexto.trim() && nuevoResponsable.trim() && nuevaFechaEntrega.trim()) {
             const nuevaTarea = {
+                materia: nuevaTareaMateria.toUpperCase(),
                 texto: nuevaTareaTexto.toUpperCase(),
                 completado: false,
                 responsable: nuevoResponsable.toUpperCase(),
@@ -93,6 +96,7 @@ function App() {
     
             // Actualiza el estado local
             setTareas([...tareas, { id: docRef.id, ...nuevaTarea }]);
+            setNuevaTareaMateria('');
             setNuevaTareaTexto('');
             setNuevoResponsable('');
             setNuevoLink('');
@@ -204,11 +208,24 @@ function App() {
                             Borrar todas las tareas
                         </button>
                     </div>
+
                     {/* Ventana de añadir tarea */}
                     {modalVisible && (
                         <div className="modal" onKeyDown={handleKeyDown} onClick={handleOutsideClick} tabIndex="0">
                             <div className="modal-content">
                                 <h3>Nueva Tarea</h3>
+                                {/* Materia o area */}
+                                <select
+                                    value = {nuevaTareaMateria}
+                                    onChange = { (e) => setNuevaTareaMateria(e.target.value) } 
+                                    >
+                                    <option value="" disabled>Selecciona una materia</option>
+                                    { materias.map((materia, index) => (
+                                        <option key={index} value={materia}>
+                                            {materia}
+                                        </option>
+                                    ))}
+                                </select>
                                 {/* Descripción de la tarea */}
                                 <input 
                                     type="text" 

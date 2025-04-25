@@ -4,6 +4,9 @@ const Tarea = ({ tarea, toggleCompletado, eliminarTarea }) => {
     return (
         <li className={`tarea ${tarea.completado ? 'completado' : ''}`}>
             <div className="tarea-contenido">
+                <p className='tarea-materia'>
+                    <strong>Materia:</strong> {tarea.materia}
+                </p>
                 <p className="tarea-texto">{tarea.texto}</p>
                 <p className="tarea-responsable">
                     <strong>Responsable:</strong> {tarea.responsable}
