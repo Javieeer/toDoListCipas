@@ -1,64 +1,94 @@
-/* Contenedor principal */
+/* Estilo general del footer */
 footer {
-    width: 100%;
-    margin: 0;
-    padding: 20px 0; 
-    background-color: rgb(0, 0, 0);
-    text-align: center;
-    box-sizing: border-box; 
-  }
+  background-color: #4b4b4b; /* Fondo oscuro */
+  color: #f4f4f4; /* Texto claro */
+  padding: 20px 10px;
+  text-align: center;
+  font-family: 'Roboto', Arial, sans-serif;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2); /* Sombra superior */
+}
+
+/* Redes sociales */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Reloj */
+.clock {
+  font-size: 1.0rem;
+  color: #f4f4f4;
+}
+
+.clock h3 {
+  margin: 0;
   
-  /* Títulos dentro del footer */
-  footer h3 {
-    margin: 0;
-    font-size: 1.2em;
-    color: white;
+}
+
+/* Contenedor superior */
+.containerSuperior {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Estilo para la línea horizontal */
+.custom-line {
+  border: none; /* Elimina el borde predeterminado */
+  height: 1px; /* Altura de la línea */
+  background-color: #ccc; /* Color de la línea */
+  width: 100%; /* Ancho de la línea */
+}
+
+/* Copyright */
+.copyright {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.copyright p {
+  margin: 0;
+}
+
+.copyright a {
+  color: #007bff; /* Azul para el enlace */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.copyright a:hover {
+  color: #0056b3; /* Azul más oscuro al pasar el cursor */
+}
+
+/* Responsividad */
+@media (max-width: 920px) {
+  .ocultar-en-movil {
+    display: none !important; /* Oculta el elemento en pantallas pequeñas */
   }
-  
-  /* Contenedor de reloj */
-  .clock1 {
-    display: flex;
+}
+
+@media (max-width: 500px) {
+  .ocultar-en-movil {
+    display: flex !important; 
+  }
+
+  .containerSuperior {
     flex-direction: column; 
-    align-items: center;
-    /* Línea divisoria */
-    border-top: 1px solid #ffffff;
   }
-  
-  .clock2 {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Sección de enlaces sociales */
+
   .social-links {
-    margin: 0;
-    padding: 20px; 
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px; 
   }
   
-  /* Estilo para los círculos sociales */
-  .social-circle {
-    /* Espaciado entre los círculos */
-    margin: 10px; 
+  .clock {
+    font-size: 0.8rem; /* Tamaño de fuente más pequeño para pantallas pequeñas */
   }
-  
-  /* Sección de derechos de autor */
+
   .copyright {
-    width: 100%;
-    display: flex;
-    justify-content: center; 
-    font-size: 0.9em; 
-    color: white;
+    font-size: 0.8rem;
+    color: #ccc;
   }
-  
-  .copyright a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-  }
-  
-  .copyright:hover {
-    transform: scale(1.01);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
+}

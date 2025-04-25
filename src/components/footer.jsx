@@ -29,31 +29,50 @@ function FooterJavi() {
 
   /* Redes sociales */
   const socialLinks = [
-    { name: 'facebook', url: 'https://www.facebook.com/javier.zapata.9828/' },
-    { name: 'instagram', url: 'https://www.instagram.com/javier.zapata99/' },
-    { name: 'linkedin', url: 'https://www.linkedin.com/in/javieerzapata/' },
-    { name: 'youtube', url: 'https://www.youtube.com/@javieralejandrozapata7720' },
-    { name: 'gmail', url: 'mailto:zapatajavier34@gmail.com' },
-    { name: 'whatsapp', url: 'https://wa.me/573023137764?text=%C2%A1Hola!%20Quiero%20mas%20informaci%C3%B3n%20para%20trabajar%20contigo' },
-    /* Agregamos la otras que queramos :3 */
+    { name: 'facebook', url: 'https://www.facebook.com/javier.zapata.9828/', className: 'social-circle', hideOnMobile: true },
+    { name: 'instagram', url: 'https://www.instagram.com/javier.zapata99/', className: 'social-circle', hideOnMobile: false },
+    { name: 'linkedin', url: 'https://www.linkedin.com/in/javieerzapata/', className: 'social-circle', hideOnMobile: true },
+    { name: 'youtube', url: 'https://www.youtube.com/@javieralejandrozapata7720', className: 'social-circle', hideOnMobile: true },
+    { name: 'gmail', url: 'mailto:zapatajavier34@gmail.com', className: 'social-circle', hideOnMobile: true },
+    { name: 'whatsapp', url: 'https://wa.me/573023137764?text=%C2%A1Hola!%20Quiero%20mas%20informaci%C3%B3n%20para%20trabajar%20contigo', className: 'social-circle', hideOnMobile: false },
+    /* Agregamos las que queramos :3 */
   ];
 
   return (
     <footer>
-      <section className="social-links">
-        {socialLinks.map((link) => (
-          <SocialCircle key={link.name} {...link} />
-        ))}
-      </section>
-      <section className="clock1">
-        <div className='clock2'>
-          <h3>Esta es la hora en tiempo real en Colombia</h3>
-          <h3>{realTime ? realTime : 'Revisando la hora en Colombia...'}</h3>
-        </div>
-        <section className="copyright">
-          <p>&copy; 2025 ToDoList, diseñado por <strong><a href="https://www.instagram.com/javier.zapata99/?hl=es">Javier Zapata</a></strong></p>
+      <div className="containerSuperior">
+
+        {/* Redes sociales */}
+        <section className="social-links">
+          {socialLinks.map((link) => (
+            <SocialCircle
+              key={link.name}
+              {...link} 
+              className = { `${link.className} ${link.hideOnMobile ? 'ocultar-en-movil' : '' }` }
+              />
+          ))}
         </section>
+
+        {/* Reloj */}
+        <section className="clock">
+          <h3>Hora en tiempo real en Colombia</h3>
+          <h3>{realTime ? realTime : 'Revisando la hora en Colombia...'}</h3>
+        </section>
+      </div>
+
+      {/* Linea divisoria */}
+      <hr class="custom-line"></hr>
+
+      {/* Copyright */}
+      <section className="copyright">
+        <p>
+          &copy; 2025 ToDoList, diseñado por{' '}
+          <strong>
+            <a href="https://www.instagram.com/javier.zapata99/?hl=es">Javier Zapata</a>
+          </strong>
+        </p>
       </section>
+      
     </footer>
   );
 };

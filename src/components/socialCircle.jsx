@@ -6,13 +6,17 @@ const getIconUrl = (socialName) => {
   return `https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/${socialName}.svg`;
 };
 
-const SocialCircle = ({ name, url }) => {
+const SocialCircle = ({ name, url, className }) => {
   
   /* Obtener el link de cada icono */
   const iconUrl = getIconUrl(name);
 
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer" className="social-circle">
+    <a 
+      href = {url} 
+      target = "_blank" 
+      rel = "noopener noreferrer" 
+      className = {`social-circle ${className}`}>
       <img 
         src={iconUrl} 
         alt={`${name} icon`} 

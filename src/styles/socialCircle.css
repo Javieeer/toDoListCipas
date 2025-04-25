@@ -1,26 +1,75 @@
-/* Estilo para el círculo social */
+/* .social-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; 
+  height: 50px;
+  border-radius: 50%; 
+  background-color: #fff; 
+  margin: 10px; 
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+  
+.social-icon {
+  width: 35px; 
+  height: 35px;
+}
+  
+.social-circle:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+} */
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
 .social-circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px; 
-    height: 60px;
-    border-radius: 50%; 
-    background-color: #fff; 
-    margin: 10px; 
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 50%;
+  background-color: #f4f4f4; /* Fondo claro */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none; /* Elimina subrayado */
+}
+
+.social-circle:hover {
+  transform: scale(1.1); /* Efecto de zoom */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+  background-color: #e0e0e0; /* Fondo más oscuro al pasar el cursor */
+}
+
+.social-icon {
+  width: 60%; /* Ajusta el tamaño del ícono */
+  height: 60%;
+  object-fit: contain; /* Asegura que el ícono se ajuste al contenedor */
+  filter: grayscale(100%); /* Ícono en escala de grises */
+  transition: filter 0.3s ease;
+}
+
+.social-circle:hover .social-icon {
+  filter: grayscale(0%); /* Ícono a color al pasar el cursor */
+}
+
+@media (max-width: 500px) {
+  .social-circle {
+    width: 40px; /* Tamaño más pequeño en pantallas pequeñas */
+    height: 40px;
   }
-  
-  /* Estilo para el icono dentro del círculo */
+
   .social-icon {
-    width: 35px; 
-    height: 35px;
+    width: 50%; /* Ajusta el tamaño del ícono */
+    height: 50%;
   }
-  
-  /* Efecto de hover */
-  .social-circle:hover {
-    transform: scale(1.2);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
+}
