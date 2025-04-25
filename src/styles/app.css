@@ -18,6 +18,35 @@ body {
     flex: 1;
 }
 
+/* Estilo para el contenedor de carga */
+.cargando {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background-color: #f4f4f4; /* Fondo claro */
+    color: #333; /* Color del texto */
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5rem; /* Tamaño del texto */
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Animación opcional para el texto */
+.cargando p {
+    animation: fadeInOut 1.5s infinite;
+}
+
+/* Animación de parpadeo */
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
 /* Titulo de pagina */
 .titulo {
     background: #143cf0;
