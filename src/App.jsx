@@ -175,14 +175,36 @@ function App() {
             </div>
             {/* Contenedor de botones */}
             <div className="buttons">
-                <button className="añadirTarea" onClick={() => setModalVisible(true)}>Añadir Tarea</button>
-                <button className="borrarTarea" onClick={() => setTareas([])}>Borrar todas las tareas</button>
+                <button 
+                    className = "añadirTarea" 
+                    onClick = { () => setModalVisible(true) }
+                    >
+                        Añadir Tarea
+                </button>
+                <button 
+                    className = "borrarTarea" 
+                    onClick = { async () => {
+                        // Elimina todas las tareas de Firestore
+                        const tareasCollection = collection(db, "tareas");
+                        const tareasSnapshot = await getDocs(tareasCollection);
+                        const batch = tareasSnapshot.docs.map(doc => deleteDoc(doc.ref));
+
+                        // Espera a que todas las tareas sean eliminadas
+                        await Promise.all(batch);
+
+                        // Limpia el estado local
+                        setTareas([]);
+                    }}
+                    >
+                    Borrar todas las tareas
+                </button>
             </div>
             {/* Ventana de añadir tarea */}
             {modalVisible && (
                 <div className="modal" onKeyDown={handleKeyDown} onClick={handleOutsideClick} tabIndex="0">
                     <div className="modal-content">
                         <h3>Nueva Tarea</h3>
+                        {/* Descripción de la tarea */}
                         <input 
                             type="text" 
                             value={nuevaTareaTexto} 
@@ -191,6 +213,7 @@ function App() {
                             placeholder="Descripción de la tarea" 
                             ref={inputRef}
                         />
+                        {/* Responsable de la tarea */}
                         <select
                             value = {nuevoResponsable}
                             onChange = { (e) => setNuevoResponsable(e.target.value) } 
@@ -202,12 +225,14 @@ function App() {
                                 </option>
                             ))}
                         </select>
+                        {/* URL del trabajo */}
                         <input 
                             type="url" 
                             value={nuevoLink} 
                             onChange={(e) => setNuevoLink(e.target.value)} 
                             placeholder="Enlace (opcional)"
                         />
+                        {/* Fecha entrega */}
                         <input 
                             type="date" 
                             value={nuevaFechaEntrega} 
