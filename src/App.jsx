@@ -4,13 +4,12 @@ import db from './firebase.js';
 import './styles/app.css';
 import FooterJavi from "./components/footer.jsx";
 import Tarea from "./components/tarea.jsx";
-import tareasIniciales from "./data/tasks.json";
 
 function App() {
     /* Definimos la estructura de las tareas y creamos algunas de Ejemplo */
 
     /* Sin local storage */
-    const [tareas, setTareas] = useState(tareasIniciales);
+    const [tareas, setTareas] = useState();
 
     /* Con local storage */
     /* const [tareas, setTareas] = useState(() => {
