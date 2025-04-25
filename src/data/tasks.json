@@ -3,24 +3,8 @@
         "id": 1, 
         "texto": "APRENDER REACT", 
         "completado": false,
-        "responsable": "JAVIER", 
+        "responsable": "Javier", 
         "link":"", 
         "fechaEntrega": "2025-04-30" 
-    },
-    { 
-        "id": 2, 
-        "texto": "PROBANDO", 
-        "completado": true,
-        "responsable": "JHONATAN", 
-        "link":"", 
-        "fechaEntrega": "2025-04-25" 
-    },
-    { 
-        "id": 3, 
-        "texto": "HACER LA CAMA", 
-        "completado": false,
-        "responsable": "MICHAEL", 
-        "link":"", 
-        "fechaEntrega": "2025-04-26" 
     }
 ]

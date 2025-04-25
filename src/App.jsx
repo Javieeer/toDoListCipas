@@ -8,10 +8,15 @@ import tareasIniciales from "./data/tasks.json";
 
 function App() {
     /* Definimos la estructura de las tareas y creamos algunas de Ejemplo */
-    const [tareas, setTareas] = useState(() => {
+
+    /* Sin local storage */
+    const [tareas, setTareas] = useState(tareasIniciales);
+
+    /* Con local storage */
+    /* const [tareas, setTareas] = useState(() => {
         const savedTareas = localStorage.getItem('tareas');
         return savedTareas ? JSON.parse(savedTareas) : tareasIniciales;
-    });
+    }); */
 
     /* Cargamos las tareas iniciales de la aplicación con la base de datos desde firebase */
     useEffect(() => {
@@ -24,6 +29,9 @@ function App() {
     
         fetchTareas();
     }, []);
+
+    /* Definimos los responsables de las tareas */
+    const responsables = ["Javier Zapata", "Jhonatan Rojas", "Michael Martinez"];
 
     /* Definimos los estados para el modal y la nueva tarea */
     const [modalVisible, setModalVisible] = useState(false);
@@ -138,9 +146,10 @@ function App() {
                             .filter(tarea => !tarea.completado)
                             .map(tarea => (
                                 <Tarea 
-                                    key={tarea.id} 
-                                    tarea={tarea} 
-                                    toggleCompletado={toggleCompletado}
+                                    key = { tarea.id } 
+                                    tarea = { tarea } 
+                                    toggleCompletado = { toggleCompletado }
+                                    eliminarTarea = { eliminarTarea }
                                 />
                             ))}
                     </ul>
@@ -153,9 +162,10 @@ function App() {
                             <ul>
                                 {tareasCompletadas.map(tarea => (
                                     <Tarea 
-                                        key={tarea.id} 
-                                        tarea={tarea} 
-                                        toggleCompletado={toggleCompletado}
+                                        key = { tarea.id } 
+                                        tarea = { tarea } 
+                                        toggleCompletado = { toggleCompletado }
+                                        eliminarTarea = { eliminarTarea }
                                     />
                                 ))}
                             </ul>
@@ -170,7 +180,7 @@ function App() {
             </div>
             {/* Ventana de añadir tarea */}
             {modalVisible && (
-                <div className="modal" onKeyDown={handleKeyDown} tabIndex="0">
+                <div className="modal" onKeyDown={handleKeyDown} onClick={handleOutsideClick} tabIndex="0">
                     <div className="modal-content">
                         <h3>Nueva Tarea</h3>
                         <input 
@@ -181,12 +191,17 @@ function App() {
                             placeholder="Descripción de la tarea" 
                             ref={inputRef}
                         />
-                        <input 
-                            type="text" 
-                            value={nuevoResponsable} 
-                            onChange={(e) => setNuevoResponsable(e.target.value)} 
-                            placeholder="Responsable"
-                        />
+                        <select
+                            value = {nuevoResponsable}
+                            onChange = { (e) => setNuevoResponsable(e.target.value) } 
+                            >
+                            <option value="" disabled>Selecciona un responsable</option>
+                            { responsables.map((responsable, index) => (
+                                <option key={index} value={responsable}>
+                                    {responsable}
+                                </option>
+                            ))}
+                        </select>
                         <input 
                             type="url" 
                             value={nuevoLink} 

@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
@@ -35,8 +35,89 @@ li:nth-child(odd) {
     background: #f9f9f9;
 }
 
-/* Efecto de hover */
 li:hover {
     transform: scale(1.01);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
+} */
+
+.tarea {
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    margin: 10px 0;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarea:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tarea.completado {
+    background: linear-gradient(135deg, #e0ffe0, #f9fff9);
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
+/* Contenido de la tarea */
+.tarea-contenido {
+    flex: 1;
+}
+
+.tarea-texto {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.tarea-responsable,
+.tarea-fecha {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.tarea-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.tarea-link a:hover {
+    text-decoration: underline;
+}
+
+/* Acciones de la tarea */
+.tarea-acciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.tarea-checkbox {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.tarea-eliminar {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f44336;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tarea-eliminar:hover {
+    background-color: #e53935;
+    transform: scale(1.05);
+}
