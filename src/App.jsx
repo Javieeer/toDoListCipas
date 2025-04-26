@@ -143,25 +143,29 @@ function App() {
                 <div className="cargando">
                     <p>Cargando Tareas ...</p>
                 </div>
-            ) : (
+            ) : ( 
                 <>
                     {/* Contenedor lista de tareas */}
                     <div className="todolist">
                         {/* Contenedor de tareas pendientes */}
                         <div className="listaNoDone">
                             <h2>Lista de Tareas</h2>
-                            <ul>
-                                {tareas
-                                    .filter(tarea => !tarea.completado)
-                                    .map(tarea => (
-                                        <Tarea 
-                                            key = { tarea.id } 
-                                            tarea = { tarea } 
-                                            toggleCompletado = { toggleCompletado }
-                                            eliminarTarea = { eliminarTarea }
-                                        />
-                                    ))}
-                            </ul>
+                            { tareas.filter( tarea => !tarea.completado ).length === 0 ? (
+                                <p className="texto-relax">Estamos al día, relax 😎</p>
+                            ) : (
+                                <ul>
+                                    {tareas
+                                        .filter(tarea => !tarea.completado)
+                                        .map(tarea => (
+                                            <Tarea 
+                                                key = { tarea.id } 
+                                                tarea = { tarea } 
+                                                toggleCompletado = { toggleCompletado }
+                                                eliminarTarea = { eliminarTarea }
+                                            />
+                                        ))}
+                                </ul>
+                            )}
                         </div>
                         {/* Contenedor de tareas completadas */}
                         <div className="listaDone">
