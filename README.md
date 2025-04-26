@@ -1,58 +1,71 @@
-# Cipa Task Manager
+# ToDo Cipas List
 
-Cipa Task Manager is a React application designed to help manage tasks for a specific group of Cipas. It allows users to list pending tasks, assign team members, provide links to work locations, and indicate task completion status.
+ToDo Cipas List es una aplicación desarrollada en React para gestionar tareas de manera eficiente. Permite a los usuarios listar tareas pendientes, asignar responsables, proporcionar enlaces relacionados con las tareas y marcar su estado de completado.
 
-## Features
+## Características
 
-- **Task Listing**: View all pending tasks in a user-friendly interface.
-- **Team Member Assignment**: Assign tasks to specific team members.
-- **Work Location Links**: Provide direct links to work locations for each task.
-- **Completion Status**: Easily track the completion status of tasks.
+- **Listado de Tareas**: Visualiza todas las tareas pendientes y completadas en una interfaz amigable.
+- **Asignación de Responsables**: Asigna tareas a miembros específicos del equipo.
+- **Enlaces Relacionados**: Proporciona enlaces directos para cada tarea (opcional).
+- **Estado de Completado**: Marca y desmarca tareas como completadas.
+- **Gestión de Tareas**: Agrega, edita y elimina tareas fácilmente.
+- **Integración con Firebase**: Las tareas se almacenan y gestionan en tiempo real utilizando Firebase Firestore.
 
-## Getting Started
+## Requisitos Previos
 
-### Prerequisites
-
-- Node.js (version 14 or higher)
+- Node.js (versión 14 o superior)
 - npm (Node Package Manager)
+- Una cuenta de Firebase con un proyecto configurado.
 
-### Installation
+## Instalación
 
-1. Clone the repository:
+1. Clona el repositorio:
    ```
-   git clone https://github.com/yourusername/cipa-task-manager.git
-   ```
-
-2. Navigate to the project directory:
-   ```
-   cd cipa-task-manager
+   git clone https://github.com/yourusername/todo-cipas-list.git
    ```
 
-3. Install the dependencies:
+2. Navega al directorio del proyecto:
+   ```
+   cd todo-cipas-list
+   ```
+
+3. Instala las dependencias:
    ```
    npm install
    ```
 
-### Running the Application
+4. Configura Firebase:
+   - Crea un archivo `.env` en la raíz del proyecto.
+   - Agrega las credenciales de tu proyecto de Firebase:
+     ```
+     REACT_APP_FIREBASE_API_KEY=your_api_key
+     REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
+     REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+     REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+     REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+     REACT_APP_FIREBASE_APP_ID=your_app_id
+     ```
 
-To start the development server, run:
+## Ejecución de la Aplicación
+
+Para iniciar el servidor de desarrollo, ejecuta:
 ```
-npm start
+npm run dev
 ```
-This will open the application in your default web browser at `http://localhost:3000`.
+Esto abrirá la aplicación en tu navegador predeterminado en `http://localhost:3000`. u otro puerto dependiendo de tus puertos disponibles.
 
-### Building for Production
+## Construcción para Producción
 
-To create a production build of the application, run:
+Para crear una versión optimizada de la aplicación, ejecuta:
 ```
 npm run build
 ```
-This will generate a `build` folder containing the optimized application.
+Esto generará una carpeta `build` con la aplicación lista para desplegar.
 
-## Folder Structure
+## Estructura de Carpetas
 
 ```
-cipa-task-manager
+todo-cipas-list
 ├── public
 │   ├── index.html
 │   └── favicon.ico
@@ -60,15 +73,15 @@ cipa-task-manager
 │   ├── components
 │   │   ├── Footer.jsx
 │   │   ├── Header.jsx
-│   │   ├── Task.jsx
+│   │   ├── SocialCircle.jsx
+│   │   ├── Tarea.jsx
 │   │   └── TaskList.jsx
-│   ├── pages
-│   │   ├── Dashboard.jsx
-│   │   └── TaskDetails.jsx
 │   ├── styles
-│   │   └── app.css
+│   │   ├── app.css
+│   │   ├── footer.css
+│   │   └── tarea.css
 │   ├── utils
-│   │   └── api.js
+│   │   └── firebaseConfig.js
 │   ├── App.jsx
 │   ├── index.js
 │   └── data
@@ -78,10 +91,10 @@ cipa-task-manager
 └── README.md
 ```
 
-## Contributing
+## Contribución
 
-If you would like to contribute to this project, please fork the repository and submit a pull request with your changes.
+Si deseas contribuir a este proyecto, por favor haz un fork del repositorio y envía un pull request con tus cambios.
 
-## License
+## Licencia
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
