@@ -274,7 +274,7 @@ footer {
 
     /* Contenedor de la lista */
     .todolist {
-        justify-content: space-around;
+        justify-content: flex-start;
         gap: 20px;
         min-height: 150%;
         overflow-y: auto;

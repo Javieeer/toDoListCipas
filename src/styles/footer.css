@@ -70,10 +70,6 @@ footer {
 }
 
 @media (max-width: 500px) {
-  .ocultar-en-movil {
-    display: flex !important; 
-  }
-
   .containerSuperior {
     flex-direction: column; 
   }

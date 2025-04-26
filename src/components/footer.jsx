@@ -30,10 +30,10 @@ function FooterJavi() {
   /* Redes sociales */
   const socialLinks = [
     { name: 'facebook', url: 'https://www.facebook.com/javier.zapata.9828/', className: 'social-circle', hideOnMobile: true },
-    { name: 'instagram', url: 'https://www.instagram.com/javier.zapata99/', className: 'social-circle', hideOnMobile: false },
+    { name: 'instagram', url: 'https://www.instagram.com/javier.zapata99/', className: 'social-circle', hideOnMobile: true },
     { name: 'linkedin', url: 'https://www.linkedin.com/in/javieerzapata/', className: 'social-circle', hideOnMobile: true },
     { name: 'youtube', url: 'https://www.youtube.com/@javieralejandrozapata7720', className: 'social-circle', hideOnMobile: true },
-    { name: 'gmail', url: 'mailto:zapatajavier34@gmail.com', className: 'social-circle', hideOnMobile: true },
+    { name: 'gmail', url: 'mailto:zapatajavier34@gmail.com', className: 'social-circle', hideOnMobile: false },
     { name: 'whatsapp', url: 'https://wa.me/573023137764?text=%C2%A1Hola!%20Quiero%20mas%20informaci%C3%B3n%20para%20trabajar%20contigo', className: 'social-circle', hideOnMobile: false },
     /* Agregamos las que queramos :3 */
   ];
